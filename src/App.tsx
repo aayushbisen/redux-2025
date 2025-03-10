@@ -8,7 +8,7 @@ const App = () => {
       <h1>Rsbuild with React</h1>
       <p>Start building amazing things with Rsbuild.</p>
       <Counter />
-      <p></p>
+      <p />
       <Quote />
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 // Provider is a component that makes the store available to children components that are wrapped in it
 import { Provider } from 'react-redux';
+import App from './App';
 import { store } from './app/store';
 
 const rootEl = document.getElementById('root');
