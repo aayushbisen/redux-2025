@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 import { useDispatch, useSelector } from 'react-redux';
+import { apiSlice } from '../features/api/apiSlice';
 import counterReducer from '../features/counter/counterSlice';
 
 // configureStore creates a redux store instance
@@ -8,8 +10,17 @@ export const store = configureStore({
   reducer: {
     // counter reducer is responsible for managing the counter state
     counter: counterReducer,
+    [apiSlice.reducerPath]: apiSlice.reducer,
   },
+  // middleware is a way to extend redux with custom functionality
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
 });
+
+// setupListeners is a function that enables the automatic dispatching of lifecycle hooks for the API endpoints
+// for example refetching data when the window regains focus
+// and polling the server for updates
+setupListeners(store.dispatch);
 
 // AppStore type represents the type of the redux store
 type AppStore = typeof store;

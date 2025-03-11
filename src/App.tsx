@@ -1,5 +1,6 @@
 import './App.css';
 import { Counter } from './features/counter/Counter';
+import QueryConsumer from './features/counter/QueryConsumer';
 import { Quote } from './features/counter/Quote';
 
 const App = () => {
@@ -10,6 +11,8 @@ const App = () => {
       <Counter />
       <p />
       <Quote />
+      <p />
+      <QueryConsumer />
     </div>
   );
 };
